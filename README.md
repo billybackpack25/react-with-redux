@@ -1,2 +1,6 @@
 # react-with-redux
-Simple app react app working with redux 
+
+Simple react app working with redux.
+
+- auth
+- counter

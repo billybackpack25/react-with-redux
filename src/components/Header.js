@@ -1,10 +1,13 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import classes from './Header.module.css';
 import { authActions } from '../store/slices/auth';
 
 const Header = () => {
   const dispatch = useDispatch();
+  const { itemCount } = useSelector((state) => state.products.cart);
   const { logout } = authActions;
+
+  const badge = (num) => <div className={classes.badge}>{num}</div>;
 
   return (
     <header className={classes.header}>
@@ -12,7 +15,7 @@ const Header = () => {
       <nav>
         <ul>
           <li>
-            <a href='/'>My Products</a>
+            <span>My Products {badge(itemCount)}</span>
           </li>
           <li>
             <a href='/'>My Sales</a>
